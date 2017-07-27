@@ -40,7 +40,7 @@ app.post("/user/upload",function(req,res,next){
 	busboy.on('finish', function() {
 		 console.log('Upload complete');
   		// Send back HTTP response.
-  		res.writeHead(200, { 'Connection': 'close' });
+  		// res.writeHead(200, { 'Connection': 'close' });
 		  // End response.
 		res.redirect('/info')
 	});
@@ -76,7 +76,7 @@ app.post("/user/input", function(req,res,next){
 app.get("/info", function(req,res,next){
 	let html = `<h1>${userInfo.name}</h1><br>
 				<h2>${userInfo.email}</h2>
-				<img src="./static/uploads/${userInfo.avatar} />`
+				<img src="/uploads/${userInfo.avatar}" />`
 	res.send(html)
 })
 app.listen(3000, function(){
